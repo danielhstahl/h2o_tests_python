@@ -3,6 +3,7 @@ import h2o
 from h2o.estimators.deeplearning import H2ODeepLearningEstimator
 from h2o.estimators.xgboost import H2OXGBoostEstimator
 import pandas as pd
+
 def load_h2o():
     h2o.init()
 
@@ -33,9 +34,9 @@ def save_model(model):
     return h2o.save_model(model=model, path="./", force=True)
 
 load_h2o()
-data=load_data()
-train, test=split_data(data)
-model_deep_learning=train_deep_learning(train, test)
-model_xgboost=train_xgboost(train, test)
+data = load_data()
+train, test = split_data(data)
+model_deep_learning = train_deep_learning(train, test)
+model_xgboost = train_xgboost(train, test)
 save_model(model_deep_learning)
 save_model(model_xgboost)
